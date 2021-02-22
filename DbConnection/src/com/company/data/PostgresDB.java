@@ -4,19 +4,16 @@ import com.company.data.interfaces.IDB;
 
 import java.sql.*;
 
-public class PostgresDB implements IDB {
+public class PostgresDB implements IDB { /*to access the interface methods, the interface must be implemented*/
     @Override
     public Connection getConnection() throws SQLException, ClassNotFoundException {
-        String connectionUrl = "jdbc:postgresql://localhost:5432/simpleDB";
+        String connectionUrl = "jdbc:postgresql://localhost:5432/simpleDB"; /*name of database*/
         try {
-            // Here we load the driver’s class file into memory at the runtime
-            Class.forName("org.postgresql.Driver");
-
-            // Establish the connection
+            Class.forName("org.postgresql.Driver"); /*the driver’s class file*/
             Connection con = DriverManager.getConnection(connectionUrl, "Kamila", "kamilaaman01");
-//пароль и ДБ
+            /*establishing the connection + writing the password from my Database*/
             return con;
-        } catch (Exception e) {
+        } catch (Exception e) { /*in case the statement in try doesn't work or it's no longer true, it gives exception e*/
             System.out.println(e);
             throw e;
         }

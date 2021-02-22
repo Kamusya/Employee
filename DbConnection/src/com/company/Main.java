@@ -45,9 +45,9 @@ public class Main {
 
         // Here you specify which DB and UserRepository to use
         // And changing DB should not affect to whole code
-        IDB db = new PostgresDB();
-        IEmployeeRepository repo = new EmployeeRepository(db);
+        IDB db = new PostgresDB(); /*connecting databases*/
+        IEmployeeRepository repo = new EmployeeRepository(db); /*connecting repository (storage) and database*/
         EmployeeFrontend app = new EmployeeFrontend(repo);
-        app.start();
+        app.start(); /*command for start*/
     }
 }

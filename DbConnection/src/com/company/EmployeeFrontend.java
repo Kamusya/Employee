@@ -1,13 +1,12 @@
 package com.company;
 
 import com.company.controllers.EmployeeController;
-import com.company.entities.Employee;
 import com.company.repositories.interfaces.IEmployeeRepository;
 
 import java.util.Scanner;
 
-public class EmployeeFrontend {
-    private final EmployeeController controller;
+public class EmployeeFrontend { /*My main application*/
+    private final EmployeeController controller; /*controller*/
     private final Scanner scanner;
 
     public EmployeeFrontend(IEmployeeRepository repo){
@@ -15,7 +14,7 @@ public class EmployeeFrontend {
         this.scanner=new Scanner(System.in) ;
     }
 
-    public void start() {
+    public void start() { /*when program starts it should print these lines:*/
         while (true) {
             System.out.println();
             System.out.println("Welcome to My Application");
@@ -27,7 +26,7 @@ public class EmployeeFrontend {
             System.out.println("0. Exit");
             System.out.println();
             try {
-                System.out.print("Enter option (1-4): ");
+                System.out.print("Enter option (1-4): "); /*entering numbers will give values*/
                 int option = scanner.nextInt();
                 if (option == 1) {
                     getAllEmployeesMenu();
@@ -50,25 +49,12 @@ public class EmployeeFrontend {
 
         }
     }
-
-    public void getAllEmployeesMenu() {
-        String response = controller.getAllEmployees();
-        System.out.println(response);
-    }
-
-    public void getEmployeeByIdMenu() {
-        System.out.println("Please enter id");
-        int id = scanner.nextInt();
-        String response = controller.getEmployee(id);
-        System.out.println(response);
-    }
-
-    public void createEmployeeMenu() {
+    public void createEmployeeMenu() { /*creating employee, giving the name, etc*/
         System.out.println("Please enter name");
         String name = scanner.next();
         System.out.println("Please enter surname");
         String surname = scanner.next();
-        System.out.println("Please enter capacity ");
+        System.out.println("Please enter gender ");
         String gender  = scanner.next();
         System.out.println("Please enter salary ");
         double salary  = scanner.nextDouble();
@@ -76,7 +62,20 @@ public class EmployeeFrontend {
         System.out.println(response);
     }
 
+    public void getAllEmployeesMenu() { /*getting all the employees with their properties*/
+        String response = controller.getAllEmployees();
+        System.out.println(response);
+    }
+
+    public void getEmployeeByIdMenu() { /*getting an employee's characteristics by his id*/
+        System.out.println("Please enter id");
+        int id = scanner.nextInt();
+        String response = controller.getEmployee(id);
+        System.out.println(response);
+    }
+
     public void getEmployeeSalaryByIdMenu() {
+        /*Getting employee's salary by specific id, entering if will help to search for exact money*/
         System.out.println("Please enter id");
         int id = scanner.nextInt();
         String response = controller.getEmployee(id);

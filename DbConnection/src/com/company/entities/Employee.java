@@ -1,7 +1,7 @@
 package com.company.entities;
 
 public class Employee {
-    private int id; /*initializing variables and setting the access*/
+    private int id; /*initializing variables and setting the access as private*/
     private String name;
     private String surname;
     private String gender;
@@ -18,7 +18,7 @@ public class Employee {
         setSalary(salary);
     }
 
-    public Employee(int id, String name, String surname, String gender, double Salary) { /*constructor for getting the data*/
+    public Employee(int id, String name, String surname, String gender, double salary) { /*constructor for getting the data*/
         setId(id);
         setName(name);
         setSurname(surname);
@@ -28,11 +28,11 @@ public class Employee {
 
     public int getId() {
         return id;
-    }
+    } /*simple get method for getting id of an employee and returning it back*/
 
     public void setId(int id) {
         this.id = id;
-    }
+    } /*simple set method for setting the id of an employee*/
 
     public String getName() {
         return name;
@@ -62,14 +62,15 @@ public class Employee {
         return salary;
     }
 
-    public void setSalary(int id) {
+    public void setSalary(double salary) {
         this.salary = salary;
     }
 
 
-    @Override
+    @Override /*to change the properties to some values*/
     public String toString() {
         return "Employee ID : " + getId() + " Employee name : " + getName() + " Employee surname : " + getSurname()+ " Employee gender : "
                 +getGender() + " Salary : " + getSalary();
+        /*returning the parameters that we had with their descriptions*/
     }
 }

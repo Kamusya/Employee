@@ -21,17 +21,14 @@ public class EmployeeController {
         return (created ? "Employee was created!" : "Employee creation was failed!");
     }
 
-    public String getEmployee(int id) {
+    public String getEmployee(int id) { /*getting employee by id he has*/
         Employee employee = repo.getEmployee(id);
         return (employee == null ? "Employee was not found!" : employee.toString());
     }
 
-    public String getAllEmployees() {
+    public String getAllEmployees() { /*getting all employees that organization can have*/
         List<Employee> employees = repo.getAllEmployees();
-        return employees.toString();
+        return employees.toString(); /*returning the employees*/
     }
-    public Double getSalary(int id) {
-        double Salary = repo.getSalaryById(id);
-        return (salary == -1 ? "Employee was not found!" : String.valueOf(salary));
-    }
+
 }
