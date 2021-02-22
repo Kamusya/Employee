@@ -8,6 +8,7 @@ import com.company.repositories.interfaces.IEmployeeRepository;
 public class Main {
 
     public static void main(String[] args) {
+
 //        String connectionUrl = "jdbc:postgresql://localhost:5432/simpledb";
 //        Connection con = null;
 //        ResultSet rs = null;

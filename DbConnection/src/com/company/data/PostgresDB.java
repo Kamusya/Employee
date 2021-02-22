@@ -10,7 +10,7 @@ public class PostgresDB implements IDB { /*to access the interface methods, the 
         String connectionUrl = "jdbc:postgresql://localhost:5432/simpleDB"; /*name of database*/
         try {
             Class.forName("org.postgresql.Driver"); /*the driver’s class file*/
-            Connection con = DriverManager.getConnection(connectionUrl, "Kamila", "kamilaaman01");
+            Connection con = DriverManager.getConnection(connectionUrl, "postgres", "kamilaaman01");
             /*establishing the connection + writing the password from my Database*/
             return con;
         } catch (Exception e) { /*in case the statement in try doesn't work or it's no longer true, it gives exception e*/
