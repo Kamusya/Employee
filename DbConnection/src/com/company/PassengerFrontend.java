@@ -1,16 +1,16 @@
 package com.company;
 
-import com.company.controllers.EmployeeController;
-import com.company.repositories.interfaces.IEmployeeRepository;
+import com.company.controllers.PassengerController;
+import com.company.repositories.interfaces.IPassengerRepository;
 
 import java.util.Scanner;
 
-public class EmployeeFrontend { /*My main application*/
-    private final EmployeeController controller; /*controller*/
+public class PassengerFrontend {/*My main application*/
+    private final PassengerController controller; /*controller*/
     private final Scanner scanner;
 
-    public EmployeeFrontend(IEmployeeRepository repo){
-        this.controller=new EmployeeController(repo) ;
+    public PassengerFrontend(IPassengerRepository repo2){
+        this.controller=new PassengerController(repo2) ;
         this.scanner=new Scanner(System.in) ;
     }
 
@@ -19,23 +19,23 @@ public class EmployeeFrontend { /*My main application*/
             System.out.println();
             System.out.println("Welcome to My Application");
             System.out.println("Select option:");
-            System.out.println("1. Get all employees");
-            System.out.println("2. Get employee by id");
-            System.out.println("3. Create employee");
-            System.out.println("4. Get salary by employee id");
+            System.out.println("1. Get all passengers");
+            System.out.println("2. Get passenger by id");
+            System.out.println("3. Create passenger");
+            System.out.println("4. Get ticket_price by passenger id");
             System.out.println("0. Exit");
             System.out.println();
             try {
                 System.out.print("Enter option (1-4): "); /*entering numbers will give values*/
                 int option = scanner.nextInt();
                 if (option == 1) {
-                    getAllEmployeesMenu();
+                    getAllPassengersMenu();
                 } else if (option == 2) {
-                    getEmployeeByIdMenu();
+                    getPassengerByIdMenu();
                 } else if (option == 3) {
-                    createEmployeeMenu();
+                    createPassengerMenu();
                 } else if (option == 4) {
-                    getEmployeeSalaryByIdMenu();
+                    getPassengerTicket_priceByIdMenu();
 
                 } else {
                     break;
@@ -49,7 +49,7 @@ public class EmployeeFrontend { /*My main application*/
 
         }
     }
-    public void createEmployeeMenu() { /*creating employee, giving the name, etc*/
+    public void createPassengerMenu() { /*creating passenger, giving the name, etc*/
         System.out.println("Please enter id");
         int id = scanner.nextInt();
         System.out.println("Please enter name");
@@ -58,34 +58,33 @@ public class EmployeeFrontend { /*My main application*/
         String surname = scanner.next();
         System.out.println("Please enter gender ");
         String gender  = scanner.next();
-        System.out.println("Please enter salary ");
-        double salary  = scanner.nextDouble();
-        String position = scanner.next();
-        System.out.println("Please enter position ");
-        String response = controller.createEmployee(id,name, surname, gender, salary,position);
+        System.out.println("Please enter ticket_price");
+        double ticket_price  = scanner.nextDouble();
+        System.out.println("Please enter flight_num");
+        int flight_num = scanner.nextInt();
+
+        String response = controller.createPassenger(id,name, surname, gender, ticket_price, flight_num);
         System.out.println(response);
     }
 
-    public void getAllEmployeesMenu() { /*getting all the employees with their properties*/
-        String response = controller.getAllEmployees();
+    public void getAllPassengersMenu() { /*getting all the passengers with their properties*/
+        String response = controller.getAllPassengers();
         System.out.println(response);
     }
 
-    public void getEmployeeByIdMenu() { /*getting an employee's characteristics by his id*/
+    public void getPassengerByIdMenu() { /*getting an passenger's characteristics by his id*/
         System.out.println("Please enter id");
         int id = scanner.nextInt();
-        String response = controller.getEmployee(id);
+        String response = controller.getPassenger(id);
         System.out.println(response);
     }
 
-    public void getEmployeeSalaryByIdMenu() {
-        /*Getting employee's salary by specific id, entering if will help to search for exact money*/
+    public void getPassengerTicket_priceByIdMenu() {
+        /*Getting passenger's ticket_price by specific id, entering if will help to search for exact money*/
         System.out.println("Please enter id");
         int id = scanner.nextInt();
-        String response = controller.getEmployee(id);
+        String response = controller.getPassenger(id);
         System.out.println(response);
     }
 
 }
-
-

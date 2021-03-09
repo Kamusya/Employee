@@ -1,32 +1,32 @@
 package com.company.entities;
 
-public class Employee {
+public class Passenger {
     private int id; /*initializing variables and setting the access as private*/
     private String name;
     private String surname;
     private String gender;
-    private double salary;
-    private String position;
+    private double ticket_price;
+    private int flight_num;
 
-    public Employee() { /*empty constructor*/
+    public Passenger() { /*empty constructor*/
 
     }
 
-    public Employee(String name, String surname, String gender, double salary, String position) {
+    public Passenger(String name, String surname, String gender, double ticket_price, int flight_num) {
         setName(name); /*we already wrote data type in constructor, so now it should be written without data type*/
         setSurname(surname);
         setGender(gender);
-        setSalary(salary);
-        setPosition(position);
+        setTicket_price(ticket_price);
+        setFlight_num(flight_num);
     }
 
-    public Employee(int id, String name, String surname, String gender, double salary, String position) { /*constructor for getting the data*/
+    public Passenger(int id, String name, String surname, String gender, double ticket_price,int flight_num) { /*constructor for getting the data*/
         setId(id);
         setName(name);
         setSurname(surname);
         setGender(gender);
-        setSalary(salary);
-        setPosition(position);
+        setTicket_price(ticket_price);
+        setFlight_num(flight_num);
     }
 
     public int getId() {
@@ -61,27 +61,26 @@ public class Employee {
         this.gender = gender;
     }
 
-    public double getSalary() {
-        return salary;
+    public double getTicket_price() {
+        return ticket_price;
     }
 
-    public void setSalary(double salary) {
-        this.salary = salary;
+    public void setTicket_price(double ticket_price) {
+        this.ticket_price = ticket_price;
     }
 
-    public String getPosition() {
-        return position;
+    public void setFlight_num(int flight_num) {
+        this.flight_num = flight_num;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
+    public int getFlight_num() {
+        return flight_num;
     }
-
 
     @Override /*to change the properties to some values*/
     public String toString() {
-        return "Employee ID : " + getId() + " Employee name : " + getName() + " Employee surname : " + getSurname()+ " Employee gender : "
-                +getGender() + " Salary : " + getSalary() + "Position: " + getPosition();
+        return "Passenger ID : " + getId() + " Passenger name : " + getName() + " Passenger surname : " + getSurname()+ " Passenger gender : "
+                +getGender() + " Ticket_price : " + getTicket_price() + "Flight_number : " + getFlight_num();
         /*returning the parameters that we had with their descriptions*/
     }
 }

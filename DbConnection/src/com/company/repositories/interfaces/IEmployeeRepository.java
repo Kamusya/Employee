@@ -10,5 +10,4 @@ public interface IEmployeeRepository { /*I means Interface*/
     List<Employee> getAllEmployees();
     double getSalaryById(int id) ;
 
-
 }

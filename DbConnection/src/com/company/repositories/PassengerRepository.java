@@ -1,33 +1,34 @@
 package com.company.repositories;
 
 import com.company.data.interfaces.IDB;
-import com.company.entities.Employee;
-import com.company.repositories.interfaces.IEmployeeRepository;
+import com.company.entities.Passenger;
+import com.company.repositories.interfaces.IPassengerRepository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeRepository implements IEmployeeRepository { /*Repository is the storage where is hold data, I means Interface*/
+
+public class PassengerRepository implements IPassengerRepository { /*Repository is the storage where is hold data, I means Interface*/
     private final IDB db; /*final means we cannot change its value */
 
-    public EmployeeRepository(IDB db) { /*setting the means of database in repository to be same or to be equal with database in here*/
+    public PassengerRepository(IDB db) { /*setting the means of database in repository to be same or to be equal with database in here*/
         this.db = db;
     }
 
     @Override
-    public boolean createEmployee(Employee employee) { /*create employee*/
+    public boolean createPassenger(Passenger passenger) { /*create passenger*/
         Connection con = null;
         try { /*getting connection with sql / PGAdmin's values or columns*/
             con = db.getConnection();
-            String sql = "INSERT INTO employees(id,name,surname,gender,salary,position) VALUES (?,?,?,?,?,?)";
+            String sql = "INSERT INTO passengers(id, name,surname,gender,ticket_price,flight_num) VALUES (?,?,?,?,?,?,?)";
             PreparedStatement st = con.prepareStatement(sql);
-            st.setInt(1, employee.getId());
-            st.setString(2, employee.getName());/*in first position will be written name*/
-            st.setString(3, employee.getSurname());/*in 2nd position will be written surname*/
-            st.setString(4, employee.getGender());
-            st.setDouble(5, employee.getSalary());
-            st.setString(6, employee.getPosition());
+            st.setInt(1, passenger.getId());
+            st.setString(2, passenger.getName());/*in first position will be written name*/
+            st.setString(3, passenger.getSurname());/*in 2nd position will be written surname*/
+            st.setString(4, passenger.getGender());
+            st.setDouble(5, passenger.getTicket_price());
+            st.setInt(6, passenger.getFlight_num());
             boolean executed = st.execute();
             return true;
 
@@ -46,25 +47,25 @@ public class EmployeeRepository implements IEmployeeRepository { /*Repository is
     }
 
     @Override
-    public Employee getEmployee(int id) { /*search and get Employee by id*/
+    public Passenger getPassenger(int id) { /*search and get Employee by id*/
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "SELECT id, name, surname, gender, salary, position FROM employees WHERE id=?";
-            /*searching the id, and by this id we weill get employee's name, surname, gender and salary*/
+            String sql = "SELECT id, name, surname, gender,ticket_price,flight_num FROM passengers WHERE id=?";
+            /*searching the id, and by this id we weill get passenger's name, surname, gender and salary*/
             PreparedStatement st = con.prepareStatement(sql);
 
             st.setInt(1, id);
 
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
-                Employee employee = new Employee(rs.getInt("id"),
+                Passenger passenger = new Passenger(rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("surname"),
                         rs.getString("gender"),
-                        rs.getDouble("salary"),
-                        rs.getString("position"));
-                return employee;
+                        rs.getDouble("ticket_price"),
+                        rs.getInt("flight_num"));
+                return passenger;
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -81,26 +82,27 @@ public class EmployeeRepository implements IEmployeeRepository { /*Repository is
     }
 
     @Override
-    public List<Employee> getAllEmployees() { /*getting all the employees from overall employee's table*/
+    public List<Passenger> getAllPassengers() { /*getting all the passenger from overall passenger's table*/
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "SELECT id, name, surname, gender, salary, position FROM employees";
-            /*all the properties of employee so that all employees can be searched*/
+            String sql = "SELECT id, name, surname, gender, ticket_price,flight_num FROM passengers";
+            /*all the properties of passenger so that all passengers can be searched*/
             Statement st = con.createStatement();
 
             ResultSet rs = st.executeQuery(sql);
-            List<Employee> employees = new ArrayList<>();/*setting lost of employees as new array list*/
+            List<Passenger> passengers = new ArrayList<>();/*setting lost of passengers as new array list*/
             while (rs.next()) { /*while loop*/
-                Employee employee = new Employee(rs.getInt("id"),
+                Passenger passenger = new Passenger(rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("surname"),
                         rs.getString("gender"),
-                        rs.getDouble("salary"),
-                        rs.getString("position"));
-                employees.add(employee);
+                        rs.getDouble("ticket_price"),
+                        rs.getInt("flight_num"));
+
+                passengers.add(passenger);
             }
-            return employees;
+            return passengers;
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -117,20 +119,20 @@ public class EmployeeRepository implements IEmployeeRepository { /*Repository is
     }
 
     @Override
-    public double getSalaryById(int id) { /*getting salary by id of an employee*/
+    public double getTicket_priceById(int id) { /*getting salary by id of an passenger*/
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "SELECT salary FROM employee WHERE id=?";
-            /*this means we have exactly id, and it has one employee, so knowing the id, we can get exact amount of salary*/
+            String sql = "SELECT ticket_price FROM passenger WHERE id=?";
+            /*this means we have exactly id, and it has one passenger, so knowing the id, we can get exact amount of ticket_price*/
 
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
             if (rs.next()) { /*if loop*/
-                double salary = rs.getDouble("salary");
-                /*setting value of salary to be equal to the salary that got specific id*/
-                return salary; /*just returning salary*/
+                double ticket_price = rs.getDouble("ticket_price");
+                /*setting value of ticket_price to be equal to the ticket_price that got specific id*/
+                return ticket_price; /*just returning ticket_price*/
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
