@@ -50,6 +50,8 @@ public class EmployeeFrontend { /*My main application*/
         }
     }
     public void createEmployeeMenu() { /*creating employee, giving the name, etc*/
+        System.out.println("Please enter id");
+        int id = scanner.nextInt();
         System.out.println("Please enter name");
         String name = scanner.next();
         System.out.println("Please enter surname");
@@ -58,7 +60,7 @@ public class EmployeeFrontend { /*My main application*/
         String gender  = scanner.next();
         System.out.println("Please enter salary ");
         double salary  = scanner.nextDouble();
-        String response = controller.createEmployee(name, surname, gender, salary);
+        String response = controller.createEmployee(id,name, surname, gender, salary);
         System.out.println(response);
     }
 
@@ -66,7 +68,6 @@ public class EmployeeFrontend { /*My main application*/
         String response = controller.getAllEmployees();
         System.out.println(response);
     }
-    public void{}
 
     public void getEmployeeByIdMenu() { /*getting an employee's characteristics by his id*/
         System.out.println("Please enter id");

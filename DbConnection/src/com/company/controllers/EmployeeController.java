@@ -12,9 +12,9 @@ public class EmployeeController {
         this.repo = repo;
     }
 
-    public String createEmployee(String name, String surname, String gender, Double salary) {
+    public String createEmployee(int id, String name, String surname, String gender, Double salary) {
         boolean male = (gender.toLowerCase().equals("male"));
-        Employee employee = new Employee(name, surname, gender, salary);
+        Employee employee = new Employee(id,name, surname, gender, salary);
 
         boolean created = repo.createEmployee(employee);
 

@@ -20,14 +20,15 @@ public class EmployeeRepository implements IEmployeeRepository { /*Repository is
         Connection con = null;
         try { /*getting connection with sql / PGAdmin's values or columns*/
             con = db.getConnection();
-            String sql = "INSERT INTO users(name,surname,gender,salary) VALUES (?,?,?,?)";
+            String sql = "INSERT INTO employees(id, name,surname,gender,salary) VALUES (?,?,?,?,?)";
             PreparedStatement st = con.prepareStatement(sql);
-            st.setString(1, employee.getName());/*in first position will be written name*/
-            st.setString(2, employee.getSurname());/*in 2nd position will be written surname*/
-            st.setString(3, employee.getGender());
-            st.setDouble(4, employee.getSalary());
+            st.setInt(1, employee.getId());
+            st.setString(2, employee.getName());/*in first position will be written name*/
+            st.setString(3, employee.getSurname());/*in 2nd position will be written surname*/
+            st.setString(4, employee.getGender());
+            st.setDouble(5, employee.getSalary());
             boolean executed = st.execute();
-            return executed;
+            return true;
 
         } catch (SQLException throwables) { /*in case try does not work, first exception will happen*/
             throwables.printStackTrace();
