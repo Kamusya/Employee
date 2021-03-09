@@ -66,6 +66,7 @@ public class EmployeeFrontend { /*My main application*/
         String response = controller.getAllEmployees();
         System.out.println(response);
     }
+    public void{}
 
     public void getEmployeeByIdMenu() { /*getting an employee's characteristics by his id*/
         System.out.println("Please enter id");
