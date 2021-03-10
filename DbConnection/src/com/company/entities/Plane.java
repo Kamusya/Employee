@@ -67,7 +67,7 @@ public class Plane {
     @Override /*to change the properties to some values*/
     public String toString() {
         return "Plane ID : " + getId() + " Plane name : " + getName() + "Flight_number : " + getFlight_num()
-                + "Plane_company" + getPlane_company();
+                + " Plane_company" + getPlane_company();
         /*returning the parameters that we had with their descriptions*/
     }
 }

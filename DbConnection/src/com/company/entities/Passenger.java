@@ -93,7 +93,7 @@ public class Passenger {
     @Override /*to change the properties to some values*/
     public String toString() {
         return "Passenger ID : " + getId() + " Passenger name : " + getName() + " Passenger surname : " + getSurname()+ " Passenger gender : "
-                +getGender() + " Ticket_price : " + getTicket_price() + "Flight_number : " + getFlight_num();
+                +getGender() + " Ticket_price : " + getTicket_price() + " Flight_number : " + getFlight_num();
         /*returning the parameters that we had with their descriptions*/
     }
 }

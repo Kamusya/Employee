@@ -95,7 +95,7 @@ public class Employee {
     @Override /*to change the properties to some values*/
     public String toString() {
         return "Employee ID : " + getId() + " Employee name : " + getName() + " Employee surname : " + getSurname()+ " Employee gender : "
-                +getGender() + " Salary : " + getSalary() + "Position: " + getPosition();
+                +getGender() + " Salary : " + getSalary() + " Position: " + getPosition();
         /*returning the parameters that we had with their descriptions*/
     }
 }
