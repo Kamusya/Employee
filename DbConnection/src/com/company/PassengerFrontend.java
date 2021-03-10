@@ -14,7 +14,7 @@ public class PassengerFrontend {/*My main application*/
     private final EmployeeController controller_3; /*controller*/
     private final PlaneController controller_4;
 
-    private final Scanner scanner;
+    private final Scanner scanner; /*Scanner*/
 
     public PassengerFrontend(IPassengerRepository repo2, IEmployeeRepository repo3, IPlaneRepository repo4) {
         this.controller_2=new PassengerController(repo2);
@@ -24,6 +24,7 @@ public class PassengerFrontend {/*My main application*/
     }
 
     public void start() { /*when program starts it should print these lines:*/
+        System.out.println("Welcome to AIRLINE RESERVATION SYSTEM! \n");
         System.out.println("Select one of the options: \n");
         System.out.println("1. Employees");
         System.out.println("2. Passengers");
@@ -33,8 +34,9 @@ public class PassengerFrontend {/*My main application*/
         if (option == 2) {
             while (true) {
                 System.out.println();
-                System.out.println("Welcome to My Application");
-                System.out.println("Select option:");
+                System.out.println("Welcome, dear Passenger.");
+                System.out.println("You can select option below \n");
+                System.out.println("BUT! If you do not have registered yet, select '3' \n");
                 System.out.println("1. Get all passengers");
                 System.out.println("2. Get passenger by id");
                 System.out.println("3. Create passenger");
