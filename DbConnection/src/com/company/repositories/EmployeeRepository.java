@@ -20,7 +20,7 @@ public class EmployeeRepository implements IEmployeeRepository { /*Repository is
         Connection con = null;
         try { /*getting connection with sql / PGAdmin's values or columns*/
             con = db.getConnection();
-            String sql = "INSERT INTO employees(id,name,surname,gender,salary,position) VALUES (?,?,?,?,?,?)";
+            String sql = "INSERT INTO employee(id,name,surname,gender,salary,position) VALUES (?,?,?,?,?,?)";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, employee.getId());
             st.setString(2, employee.getName());/*in first position will be written name*/
@@ -50,7 +50,7 @@ public class EmployeeRepository implements IEmployeeRepository { /*Repository is
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "SELECT id, name, surname, gender, salary, position FROM employees WHERE id=?";
+            String sql = "SELECT id, name, surname, gender, salary, position FROM employee WHERE id=?";
             /*searching the id, and by this id we weill get employee's name, surname, gender and salary*/
             PreparedStatement st = con.prepareStatement(sql);
 
@@ -85,7 +85,7 @@ public class EmployeeRepository implements IEmployeeRepository { /*Repository is
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "SELECT id, name, surname, gender, salary, position FROM employees";
+            String sql = "SELECT id, name, surname, gender, salary, position FROM employee";
             /*all the properties of employee so that all employees can be searched*/
             Statement st = con.createStatement();
 

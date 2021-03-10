@@ -17,15 +17,13 @@ public class Main {
         // Here you specify which DB and UserRepository to use
         // And changing DB should not affect to whole code
         IDB db = new PostgresDB(); /*connecting databases*/
-        IEmployeeRepository repo = new EmployeeRepository(db); /*connecting repository (storage) and database*/
-        EmployeeFrontend app = new EmployeeFrontend(repo);
+        IEmployeeRepository repo3 = new EmployeeRepository(db); /*connecting repository (storage) and database*/
+
         IPassengerRepository repo2 = new PassengerRepository(db); /*connecting repository (storage) and database*/
-        PassengerFrontend app2 = new PassengerFrontend(repo2);
-        IPlaneRepository repo3 = new PlaneRepository(db); /*connecting repository (storage) and database*/
-        PlaneFrontend app3 = new PlaneFrontend(repo3);
-        app.start(); /*command for start*/
-        app2.start();
-        app3.start();
+
+        IPlaneRepository repo4 = new PlaneRepository(db); /*connecting repository (storage) and database*/
+        PassengerFrontend app = new PassengerFrontend(repo2, repo3, repo4);
+        app.start();
 
     }
 }

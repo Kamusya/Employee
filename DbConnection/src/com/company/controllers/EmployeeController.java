@@ -13,7 +13,7 @@ public class EmployeeController {
     }
 
     public String createEmployee(int id, String name, String surname, String gender, Double salary, String position) {
-        boolean male = (gender.toLowerCase().equals("male"));
+       // boolean male = (gender.toLowerCase().equals("male"));
         Employee employee = new Employee(id,name, surname, gender, salary,position);
 
         boolean created = repo.createEmployee(employee);
