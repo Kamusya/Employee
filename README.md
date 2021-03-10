@@ -1,5 +1,5 @@
 # Employee
-My OOP assignment 4 - company
+Our OOP endterm project
 Our Airline Reservation System consists of 3 classes: Employee, Passenger and Plane.
 Employee consists of id, name, surname, gender, salary and position.
 Passenger consists of id, name, surname, gender, ticket_price and flight_num.
