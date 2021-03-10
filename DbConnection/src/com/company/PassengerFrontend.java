@@ -35,16 +35,17 @@ public class PassengerFrontend {/*My main application*/
             while (true) {
                 System.out.println();
                 System.out.println("Welcome, dear Passenger.");
-                System.out.println("You can select option below \n");
+                System.out.println("You can select one of the options below \n");
                 System.out.println("BUT! If you do not have registered yet, select '3' \n");
                 System.out.println("1. Get all passengers");
                 System.out.println("2. Get passenger by id");
                 System.out.println("3. Create passenger");
                 System.out.println("4. Get ticket_price by passenger id");
-                System.out.println("0. Exit");
+                System.out.println("5. Go back to main page");
+                System.out.println("0. Exit from reservation");
                 System.out.println();
                 try {
-                    System.out.print("Enter option (1-4): "); /*entering numbers will give values*/
+                    System.out.print("Enter one of the options (1-5): "); /*entering numbers will give values*/
                     option = scanner.nextInt();
                     if (option == 1) {
                         getAllPassengersMenu();
@@ -54,7 +55,8 @@ public class PassengerFrontend {/*My main application*/
                         createPassengerMenu();
                     } else if (option == 4) {
                         getPassengerTicket_priceByIdMenu();
-
+                    } else if (option == 5) {
+                        start();
                     } else {
                         break;
                     }
@@ -62,23 +64,23 @@ public class PassengerFrontend {/*My main application*/
                     System.out.println(e.getMessage());
                     scanner.next(); // to ignore incorrect input
                 }
-
                 System.out.println("*************************");
-
             }
         } else if (option == 1) {
             while (true) {
                 System.out.println();
-                System.out.println("Welcome to My Application");
-                System.out.println("Select option:");
+                System.out.println("Welcome, dear Employee.");
+                System.out.println("You can select one of the options below \n");
+                System.out.println("BUT! If you do not have registered yet, select '3' \n");
                 System.out.println("1. Get all employees");
                 System.out.println("2. Get employee by id");
                 System.out.println("3. Create employee");
                 System.out.println("4. Get salary by employee id");
+                System.out.println("5. Go back to main page");
                 System.out.println("0. Exit");
                 System.out.println();
                 try {
-                    System.out.print("Enter option (1-4): "); /*entering numbers will give values*/
+                    System.out.print("Enter one of the options (1-5): "); /*entering numbers will give values*/
                     option = scanner.nextInt();
                     if (option == 1) {
                         getAllEmployeesMenu();
@@ -88,7 +90,8 @@ public class PassengerFrontend {/*My main application*/
                         createEmployeeMenu();
                     } else if (option == 4) {
                         getEmployeeSalaryByIdMenu();
-
+                    } else if (option == 5) {
+                        start();
                     } else {
                         break;
                     }
@@ -104,16 +107,17 @@ public class PassengerFrontend {/*My main application*/
         else if (option == 3) {
             while (true) {
             System.out.println();
-            System.out.println("Welcome to My Application");
+            System.out.println("Welcome to reservation of plane.");
             System.out.println("Select option:");
             System.out.println("1. Get all planes");
             System.out.println("2. Get plane by id");
             System.out.println("3. Create plane");
             System.out.println("4. Get name by plane id");
+            System.out.println("5. Go back to main page");
             System.out.println("0. Exit");
             System.out.println();
             try {
-                System.out.print("Enter option (1-4): "); /*entering numbers will give values*/
+                System.out.print("Enter one of the options (1-5): "); /*entering numbers will give values*/
                 option = scanner.nextInt();
                 if (option == 1) {
                     getAllPlanesMenu();
@@ -123,7 +127,8 @@ public class PassengerFrontend {/*My main application*/
                     createPlaneMenu() ;
                 } else if (option == 4) {
                     getPlaneNameByIdMenu();
-
+                } else if (option == 5) {
+                    start();
                 } else {
                     break;
                 }
@@ -131,9 +136,7 @@ public class PassengerFrontend {/*My main application*/
                 System.out.println(e.getMessage());
                 scanner.next(); // to ignore incorrect input
             }
-
             System.out.println("*************************");
-
         }
         }
     }
@@ -152,7 +155,7 @@ public class PassengerFrontend {/*My main application*/
         System.out.println("Please enter flight_num");
         int flight_num = scanner.nextInt();
 
-        String response = controller_2.createPassenger(id,name, surname, gender, ticket_price, flight_num);
+        String response = controller_2.createPassenger(id, name, surname, gender, ticket_price, flight_num);
         System.out.println(response);
     }
 
